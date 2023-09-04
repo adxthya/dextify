@@ -52,4 +52,4 @@ async def meme(ctx):
   await ctx.channel.send(memes)
   
 bot.run(os.getenv("TOKEN"))
-
+# Add the token to the env variable or directly enter the token into the run function as a string 
