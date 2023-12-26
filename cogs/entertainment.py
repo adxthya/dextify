@@ -8,7 +8,7 @@ class Entertainment(commands.Cog):
         self._last_member = None
 
     @commands.command()
-    async def meme(ctx):
+    async def meme(self,ctx):
         result = requests.get("https://meme-api.com/gimme/")
         data = result.json()
         meme = data["url"]
