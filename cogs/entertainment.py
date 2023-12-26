@@ -36,5 +36,15 @@ class Entertainment(commands.Cog):
         else:
             print('Request failed with status code:', response.status_code)
 
+    @commands.command()
+    async def quote(self,ctx):
+        response  = requests.get("https://zenquotes.io/api/random")
+        if(response.status_code != 200):
+            await ctx.channel.send("Error fetching quote...")
+            print(response.json())
+        else:
+            quote = response.json()[0]['q']
+            await ctx.channel.send(quote)                                 
+
 async def setup(bot):
     await bot.add_cog(Entertainment(bot))
