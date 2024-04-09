@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 async def on_ready():
     print(f"Logged in as {bot.user.name}#{bot.user.discriminator}")
 
-cogs_list = ["cogs.moderation", "cogs.greetings", "cogs.entertainment"]
+cogs_list = ["cogs.moderation", "cogs.greetings", "cogs.entertainment", "cogs.gpt"]
 
 @bot.event
 async def setup_hook():
