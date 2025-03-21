@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from datetime import datetime
+from datetime import datetime, timezone
 
 class Moderation(commands.Cog):
     def __init__(self, bot):
@@ -16,7 +16,7 @@ class Moderation(commands.Cog):
 
     @commands.command()
     async def delete(self, ctx):
-        today = datetime.utcnow().date()
+        today = datetime.now(timezone.utc).date()
         def is_today(message):
             return message.created_at.date() == today
         deleted = await ctx.channel.purge(limit = None, check=is_today)
